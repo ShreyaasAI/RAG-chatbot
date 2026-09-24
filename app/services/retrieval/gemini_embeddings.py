@@ -1,18 +1,18 @@
 import time
 import logfire
-from langchain_google_google_genai import GoogleGenAIEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from app.config import settings
 
 BATCH_SIZE=50
 _GEMINI_EMBEDDING_DIMENSIONS=3072
 _FALLBACK_EMBEDDING_DIMENSION = 768
-
+logfire.configure()
 active_model =None
 model_type:str|None = None
 def probe_gemini():
     try:
-        model = GoogleGenAIEmbeddings(model="gemini-embedding-2", google_api_key=settings.GEMINI_API_KEY)
-        model.embedded_query("probe")
+        model = GoogleGenerativeAIEmbeddings(model="gemini-embedding-2-preview", google_api_key=settings.GEMINI_API_KEY)
+        model.embed_query("probe")
         logfire.info("Gemini created embeddings read(models/gemini)")
         return model
     except Exception as e:

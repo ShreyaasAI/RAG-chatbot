@@ -36,6 +36,7 @@ python-docx                 # Parser for Word documents
 pypdf                       # Local PDF text extraction (replaces Document AI)
 beautifulsoup4              # High-speed HTML text extraction
 pdfplumber                  # Fallback PDF parser for scanned/complex layouts
+pypdf2                      #To read the pdf file
 
 # --- OBSERVABILITY & DISTRIBUTED TRACING ---
 langsmith                   # Specialized tracing for LangChain/LangGraph
